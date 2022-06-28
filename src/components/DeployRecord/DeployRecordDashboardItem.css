@@ -1,0 +1,31 @@
+.row.skills {
+    flex-wrap: wrap;
+    margin-left: 0px;
+    margin-top: 15px;
+}
+
+.deployRecords {
+    flex-wrap: wrap;
+    margin-left: 0px;
+    margin-top: 20px;
+    font-size: 14px;
+    border-bottom: 2px solid #c1c4c7 !important;
+}
+
+.main-info {
+    flex-wrap: wrap;
+    margin-left: 0px;
+    margin-top: 20px;
+    font-size: 14px;
+    border-bottom: 2px solid #c1c4c7 !important;
+}
+
+
+.row.contacts.border-right {
+    margin-left: 15px;
+}
+
+
+.bold-field {
+    font-weight: 600;
+}

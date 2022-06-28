@@ -1,18 +1,17 @@
+import React, {Components} from "react";
 import logo from './logo.svg';
 import './App.css';
+import Dashboard from "./components/Dashboard";
+import Header from "./components/Layout/Header";
+import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          dev journal
-        </p>
-
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Header/>
+            <Dashboard/>
+        </div>
+    );
 }
 
 export default App;

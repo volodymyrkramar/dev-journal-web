@@ -1,0 +1,82 @@
+header div.menu img.img-container-logo {
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+    padding-top: 5px;
+    float: right;
+}
+
+header div.menu {
+    min-height: 60px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 5px;
+}
+
+.btn.btn-lg {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #2A2B2E;
+    border-radius: 16px;
+    box-shadow: 0px 2px 8px 4px #88888859;
+}
+
+.btn.btn-lg:hover {
+    color: #00B0F0;
+    text-decoration: underline;
+    background-color: #F2F2F2;
+}
+
+header nav ul {
+    list-style-type: none;
+    float: left;
+    margin-top: 17px;
+}
+
+header nav ul li {
+    display: inline-block;
+    float: left;
+    margin-left: 40px;
+}
+
+header nav ul li a {
+    color: #2A2B2E;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 21px;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.far.fa-bell.fa-lg {
+    display: block;
+    margin-top: 17px;
+}
+
+header div.right-block li {
+    list-style-type: none;
+    padding: 0 10px;
+    margin: 0 1px 0 -1px;
+    float: left;
+}
+
+header div.bell-block li {
+    border-right: solid 2px grey;
+    border-left: solid 2px grey;
+
+
+}
+
+header div.log-block li a span {
+    color: #2A2B2E;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+header div.log-block li a {
+    margin-top: 3px;
+}
+
