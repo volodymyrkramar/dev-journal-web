@@ -1,0 +1,31 @@
+.submit-new-deploy-record-button {
+    margin: 0 auto;
+    display: block;
+    width: 70%;
+}
+
+.form-group .form-control {
+    opacity: 0.3;
+    color: black;
+    border: solid 2px black;
+    border-radius: 13px;
+    margin: 20px 0;
+}
+
+.form-control::placeholder {
+    color: black !important;
+}
+
+.form-control:focus {
+    opacity: 0.6;
+    color : black;
+}
+
+h6 {
+    opacity: 0.6;
+    margin-left: 5px;
+}
+
+.form-control:hover {
+    background-color: #00B0F0;
+}

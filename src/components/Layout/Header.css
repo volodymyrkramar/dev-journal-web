@@ -80,3 +80,10 @@ header div.log-block li a {
     margin-top: 3px;
 }
 
+a.nav-link {
+    color: #00B0F0;
+}
+a.nav-link:hover {
+    color: grey;
+}
+

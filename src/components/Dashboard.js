@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import DeployRecordItem from "./DeployRecord/DeployRecordItem";
 import DeployRecordDashboardItem from "./DeployRecord/DeployRecordDashboardItem";
+import CreateDeployRecordButton from "./DeployRecord/CreateDeployRecordButton";
 
 class Dashboard extends Component {
     render() {
@@ -11,9 +12,7 @@ class Dashboard extends Component {
                         <div className="col-md-12">
                             <h1 className="display-6 text-right">Deployments:</h1>
                             <br/>
-                            <a href="ProjectForm.html" className="btn btn-lg btn-info">
-                                Create deploy record
-                            </a>
+                                <CreateDeployRecordButton/>
                             <br/>
                             <hr/>
 
