@@ -63,8 +63,8 @@ class Header extends Component {
                                         {/*<Link to="/Dashboard">*/}
                                         {/*    Login*/}
                                         {/*</Link>*/}
-                                        <a className="nav-link" href="/dashboard">
-                                            Dashboard
+                                        <a className="nav-link" href="/admin">
+                                            Admin-console
                                         </a>
                                     </li>
                                 </ul>

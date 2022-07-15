@@ -1,0 +1,39 @@
+table {
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 50px 0;
+}
+
+.bank {
+    padding-left: 15px;
+    font-weight: bold;
+    color: #18a2b9;
+    font-size: 20px;
+    border: #c1c4c7 solid 2px;
+}
+
+.serv-1 {
+    border: #c1c4c7 solid 2px;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(123, 176, 187, 0.26);
+    font-size: 20px;
+}
+
+.serv-2 {
+    border: #c1c4c7 solid 2px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.serv-3 {
+    border: #c1c4c7 solid 2px;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(123, 176, 187, 0.26);
+    font-size: 20px;
+}

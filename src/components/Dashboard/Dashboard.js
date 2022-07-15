@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import DeployRecordItem from "./DeployRecord/DeployRecordItem";
-import DeployRecordDashboardItem from "./DeployRecord/DeployRecordDashboardItem";
-import CreateDeployRecordButton from "./DeployRecord/CreateDeployRecordButton";
+import DeployRecordItem from "../DeployRecord/DeployRecordItem";
+import DeployRecordDashboardItem from "../DeployRecord/DeployRecordDashboardItem";
+import CreateDeployRecordButton from "../DeployRecord/CreateDeployRecordButton";
+import "./Dashboard.css";
 
 class Dashboard extends Component {
     render() {
