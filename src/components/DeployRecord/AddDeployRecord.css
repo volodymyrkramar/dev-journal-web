@@ -6,12 +6,16 @@
 
 }
 
-.form-group .form-control {
+ .form-control {
     opacity: 0.3;
     color: black;
     border: solid 2px black;
     border-radius: 13px;
-    margin: 20px 0;
+    margin: 30px 0 5px 0;
+}
+
+.date-field {
+margin-top: 0;
 }
 
 .form-control::placeholder {
@@ -25,6 +29,7 @@
 
 h6 {
     opacity: 0.6;
+    margin-top: 20px;
     margin-left: 5px;
 }
 
@@ -35,4 +40,10 @@ h6 {
 
 .form-control:hover {
     background-color: #00B0F0;
+}
+
+.invalid-feedback {
+    color: red;
+    font-size: 12px;
+    margin-top: 0;
 }

@@ -3,6 +3,7 @@ import "./AddDeployRecord.css";
 import {connect} from 'react-redux';
 import PropTypes from "prop-types";
 import {createDeployRecord} from "../../actions/deployRecordActions";
+import classnames from "classnames";
 
 
 class AddDeployRecord extends Component {
@@ -63,38 +64,41 @@ class AddDeployRecord extends Component {
                                 <div className="form-group">
                                     <input
                                         type="text"
-                                        className="form-control form-control-lg "
+                                        className={classnames("form-control form-control-lg", {"is-invalid": errors.project})}
                                         placeholder="project"
                                         name="project"
                                         value={this.state.project}
                                         onChange={this.onChange}
                                     />
+                                    {errors.project && (<div className="invalid-feedback">{errors.project}</div>)}
                                 </div>
                                 <div className="form-group">
                                     <input
                                         type="text"
-                                        className="form-control form-control-lg"
+                                        className={classnames("form-control form-control-lg", {"is-invalid": errors.environment})}
                                         placeholder="environment"
                                         name="environment"
                                         value={this.state.environment}
                                         onChange={this.onChange}
                                     />
+                                    {errors.environment && (<div className="invalid-feedback">{errors.environment}</div>)}
                                 </div>
                                 <h6>Deploy date:</h6>
                                 <div className="form-group">
                                     <input
                                         type="date"
-                                        className="form-control form-control-lg date-field"
+                                        className={classnames("form-control form-control-lg date-field", {"is-invalid": errors.deploymentDate})}
                                         name="deploymentDate"
                                         value={this.state.deploymentDate}
                                         onChange={this.onChange}
                                     />
+                                    {errors.deploymentDate && (<div className="invalid-feedback">{errors.deploymentDate}</div>)}
 
                                 </div>
                                 <div className="form-group">
                                     <input
                                         type="text"
-                                        className="form-control form-control-lg"
+                                        className= "form-control form-control-lg"
                                         placeholder="core branch"
                                         name="coreBranch"
                                         value={this.state.coreBranch}
