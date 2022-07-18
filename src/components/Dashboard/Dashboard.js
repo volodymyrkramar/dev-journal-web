@@ -13,7 +13,7 @@ class Dashboard extends Component {
                         <div className="col-md-12">
                             <h1 className="display-6 text-right">Deployments:</h1>
                             <br/>
-                                <CreateDeployRecordButton/>
+                            <CreateDeployRecordButton/>
                             <br/>
                             <hr/>
 
@@ -21,18 +21,20 @@ class Dashboard extends Component {
                             <div className="table-responsive-xl">
                                 <table id="mytable" className="table table-bordred table-striped">
                                     <thead>
-                                    <th><input type="checkbox" id="checkall"/></th>
-                                    <th>date</th>
-                                    <th>project</th>
-                                    <th>environment</th>
-                                    <th>core branch</th>
-                                    <th>core commit</th>
-                                    <th>il branch</th>
-                                    <th>il commit</th>
-                                    <th>created</th>
-                                    <th>creator</th>
-                                    <th>updated</th>
-                                    <th>updater</th>
+                                    <tr>
+                                        <th><input type="checkbox" id="checkall"/></th>
+                                        <th>date</th>
+                                        <th>project</th>
+                                        <th>environment</th>
+                                        <th>core branch</th>
+                                        <th>core commit</th>
+                                        <th>il branch</th>
+                                        <th>il commit</th>
+                                        <th>created</th>
+                                        <th>creator</th>
+                                        <th>updated</th>
+                                        <th>updater</th>
+                                    </tr>
                                     </thead>
 
                                     <tbody>

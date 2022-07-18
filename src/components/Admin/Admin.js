@@ -59,7 +59,7 @@ class Admin extends Component {
                         </td>
                         <td id="}&gt;KD" className="col-2 serv-1"></td>
                         <td id="}&gt;KD" className="col-2 serv-2">
-                            <a target="_blank" href="https://testtoken.industrialbank.ua/ibank"></a>
+                            <a target="_blank" href="https://testtoken.industrialbank.ua/admin/">industrial-test</a>
                         </td>
                         <td id="}&gt;KD" className="col-2 serv-3"></td>
                         <td className="border-col col-1"></td>
