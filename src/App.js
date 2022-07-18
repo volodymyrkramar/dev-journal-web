@@ -13,6 +13,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import AddDeployRecord from "./components/DeployRecord/AddDeployRecord";
 import Admin from "./components/Admin/Admin"
 import {Provider} from "react-redux";
+import store from "./store";
 
 function App() {
     return (

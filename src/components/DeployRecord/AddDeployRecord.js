@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import "./AddDeployRecord.css";
+import {connect} from 'react-redux';
+import PropTypes from "prop-types";
+import {createDeployRecord} from "../../actions/deployRecordActions";
+
 
 class AddDeployRecord extends Component {
     constructor() {
         super();
-
         this.state = {
             project: "",
             environment: "",
@@ -14,17 +17,25 @@ class AddDeployRecord extends Component {
             ilBranch: "",
             ilCommit: "",
             notes: "",
+            errors: {}
         };
 
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
-    onChange = (e) => {
+    //life cycle hooks
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+            this.setState({ errors: nextProps.errors });
+        }
+    }
+
+    onChange(e) {
         this.setState({[e.target.name]: e.target.value});
     }
 
-    onSubmit = (e) => {
+    onSubmit(e) {
         e.preventDefault();
         const newDeployRecord = {
             project: this.state.project,
@@ -36,10 +47,12 @@ class AddDeployRecord extends Component {
             ilCommit: this.state.ilCommit,
             notes: this.state.notes,
         };
-        console.log(newDeployRecord);
+        this.props.createDeployRecord(newDeployRecord, this.props.history);
     }
 
     render() {
+        const {errors} = this.state;
+
         return (
             <div className="project">
                 <div className="container">
@@ -132,7 +145,8 @@ class AddDeployRecord extends Component {
 
                                 <input
                                     type="submit"
-                                    className="btn btn-secondary btn-lg btn-block submit-new-deploy-record-button"/>
+                                    className="btn btn-secondary btn-lg btn-block submit-new-deploy-record-button"
+                                    value="Save deploy record"/>
                             </form>
                         </div>
                     </div>
@@ -144,4 +158,13 @@ class AddDeployRecord extends Component {
 
 }
 
-export default AddDeployRecord;
+AddDeployRecord.propTypes = {
+    createDeployRecord: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    errors: state.errors
+});
+
+export default connect(mapStateToProps, {createDeployRecord})(AddDeployRecord);
