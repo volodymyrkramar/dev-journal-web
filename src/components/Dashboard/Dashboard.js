@@ -1,11 +1,21 @@
 import React, {Component} from 'react';
 import DeployRecordItem from "../DeployRecord/DeployRecordItem";
-import DeployRecordDashboardItem from "../DeployRecord/DeployRecordDashboardItem";
 import CreateDeployRecordButton from "../DeployRecord/CreateDeployRecordButton";
 import "./Dashboard.css";
+import {connect} from "react-redux";
+import {getDeployRecords} from "../../actions/deployRecordActions";
+import PropTypes from "prop-types";
 
 class Dashboard extends Component {
+
+    componentDidMount() {
+        this.props.getDeployRecords();
+    }
+
     render() {
+
+        const {deployRecords} = this.props.deployRecord;
+
         return (
             <div className="projects">
                 <div className="container">
@@ -17,7 +27,6 @@ class Dashboard extends Component {
                             <br/>
                             <hr/>
 
-                            <br/>
                             <div className="table-responsive-xl">
                                 <table id="mytable" className="table table-bordred table-striped">
                                     <thead>
@@ -36,17 +45,15 @@ class Dashboard extends Component {
                                         <th>updater</th>
                                     </tr>
                                     </thead>
-
                                     <tbody>
-                                    {/*{deployRecords.map(deployRecord => (*/}
-                                    {/*    <DeployRecordDashboardItem key={deployRecord.id} deployRecord={deployRecord}/>*/}
-                                    {/*))*/}
-                                    {/*}*/}
-                                    <DeployRecordDashboardItem/>
+                                    {
+                                        deployRecords.map(deployRecord => (
+                                            <DeployRecordItem key={deployRecord.id} deployRecord={deployRecord}/>
+                                        ))
+                                    }
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -56,4 +63,13 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+
+Dashboard.propTypes = {
+    deployRecord: PropTypes.object.isRequired,
+    getDeployRecords: PropTypes.func.isRequired,
+}
+const mapStateToProps = (state) => ({
+    deployRecord: state.deployRecord
+})
+
+export default connect(mapStateToProps, {getDeployRecords})(Dashboard);
