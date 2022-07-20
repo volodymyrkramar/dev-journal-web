@@ -22,9 +22,7 @@ class Dashboard extends Component {
                     <div className="row">
                         <div className="col-md-12">
                             <h1 className="display-6 text-right">Deployments:</h1>
-                            <br/>
                             <CreateDeployRecordButton/>
-                            <br/>
                             <hr/>
 
                             <div className="table-responsive-xl">
