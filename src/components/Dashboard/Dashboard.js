@@ -31,7 +31,6 @@ class Dashboard extends Component {
                                 <table id="mytable" className="table table-bordred table-striped">
                                     <thead>
                                     <tr>
-                                        <th><input type="checkbox" id="checkall"/></th>
                                         <th>date</th>
                                         <th>project</th>
                                         <th>environment</th>
@@ -40,9 +39,9 @@ class Dashboard extends Component {
                                         <th>il branch</th>
                                         <th>il commit</th>
                                         <th>created</th>
-                                        <th>creator</th>
                                         <th>updated</th>
-                                        <th>updater</th>
+                                        <th>note</th>
+                                        <th>actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
