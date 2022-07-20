@@ -59,7 +59,7 @@ class AddDeployRecord extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h1 className="display-6 text-center">Create / edit deploy record</h1>
+                            <h1 className="display-6 text-center">Create deploy record</h1>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <input

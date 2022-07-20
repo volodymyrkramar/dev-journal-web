@@ -20,12 +20,31 @@
     border-bottom: 2px solid #c1c4c7 !important;
 }
 
-
 .row.contacts.border-right {
     margin-left: 15px;
 }
 
-
 .bold-field {
     font-weight: 600;
+}
+
+td .btn {
+    margin: 5px;
+    padding: 1px;
+}
+
+button img {
+    width: 60%;
+    height: 60%;
+    padding: 2px;
+}
+
+.btn-primary {
+    background-color: #00B0F0;
+    border-color: #00B0F0;
+    opacity: 60%;
+}
+
+.btn-danger {
+    opacity: 80%;
 }

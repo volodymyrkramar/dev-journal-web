@@ -35,30 +35,30 @@ class Header extends Component {
                                             Dashboard
                                         </a>
                                     </li>
-                                    <li className="nav-item">
-                                        {/*<Link to="/Dashboard">*/}
-                                        {/*    Clients*/}
-                                        {/*</Link>*/}
-                                        <a className="nav-link" href="/dashboard">
-                                            Dashboard
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        {/*<Link to="/Dashboard">*/}
-                                        {/*    User*/}
-                                        {/*</Link>*/}
-                                        <a className="nav-link" href="/dashboard">
-                                            Dashboard
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        {/*<Link to="/Dashboard">*/}
-                                        {/*    Sign Up*/}
-                                        {/*</Link>*/}
-                                        <a className="nav-link" href="/dashboard">
-                                            Dashboard
-                                        </a>
-                                    </li>
+                                    {/*<li className="nav-item">*/}
+                                    {/*    /!*<Link to="/Dashboard">*!/*/}
+                                    {/*    /!*    Clients*!/*/}
+                                    {/*    /!*</Link>*!/*/}
+                                    {/*    <a className="nav-link" href="/dashboard">*/}
+                                    {/*        Dashboard*/}
+                                    {/*    </a>*/}
+                                    {/*</li>*/}
+                                    {/*<li className="nav-item">*/}
+                                    {/*    /!*<Link to="/Dashboard">*!/*/}
+                                    {/*    /!*    User*!/*/}
+                                    {/*    /!*</Link>*!/*/}
+                                    {/*    <a className="nav-link" href="/dashboard">*/}
+                                    {/*        Dashboard*/}
+                                    {/*    </a>*/}
+                                    {/*</li>*/}
+                                    {/*<li className="nav-item">*/}
+                                    {/*    /!*<Link to="/Dashboard">*!/*/}
+                                    {/*    /!*    Sign Up*!/*/}
+                                    {/*    /!*</Link>*!/*/}
+                                    {/*    <a className="nav-link" href="/dashboard">*/}
+                                    {/*        Dashboard*/}
+                                    {/*    </a>*/}
+                                    {/*</li>*/}
                                     <li className="nav-item">
                                         {/*<Link to="/Dashboard">*/}
                                         {/*    Login*/}
