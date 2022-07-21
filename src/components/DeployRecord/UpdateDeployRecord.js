@@ -2,10 +2,13 @@ import React, {Component} from 'react';
 import "./AddDeployRecord.css";
 import {connect} from 'react-redux';
 import PropTypes from "prop-types";
-import {createDeployRecord} from "../../actions/deployRecordActions";
+import {createDeployRecord, getDeployRecord} from "../../actions/deployRecordActions";
 import classnames from "classnames";
+import {useParams} from "react-router-dom";
 
-export default class UpdateDeployRecord extends Component {
+
+class UpdateDeployRecord extends Component {
+
     constructor() {
         super();
         this.state = {
@@ -16,88 +19,113 @@ export default class UpdateDeployRecord extends Component {
             coreCommit: "",
             ilBranch: "",
             ilCommit: "",
-            notes: "",
-            errors: {}
+            notes: ""
         };
-
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
-    //life cycle hooks
     componentWillReceiveProps(nextProps) {
-        if (nextProps.errors) {
-            this.setState({ errors: nextProps.errors });
-        }
+        const {
+            id,
+            project,
+            environment,
+            deploymentDate,
+            coreBranch,
+            coreCommit,
+            ilBranch,
+            ilCommit,
+            notes
+        } = nextProps.deployRecord;
+
+        this.setState({
+            id,
+            project,
+            environment,
+            deploymentDate,
+            coreBranch,
+            coreCommit,
+            ilBranch,
+            ilCommit,
+            notes
+        });
     }
 
-    onChange(e) {
+    componentDidMount() {
+        // const {id} = useParams();
+        // this.props.getDeployRecord(useParams().id);
+        const id = 1;
+        this.props.getDeployRecord(id);
+    }
+
+    onChange = (e) => {
         this.setState({[e.target.name]: e.target.value});
     }
 
-    onSubmit(e) {
+    onSubmit = (e) => {
         e.preventDefault();
-        const newDeployRecord = {
+        const updatedDeployRecord = {
+            id: this.props.deployRecord.id,
             project: this.state.project,
             environment: this.state.environment,
+
             deploymentDate: this.state.deploymentDate,
             coreBranch: this.state.coreBranch,
             coreCommit: this.state.coreCommit,
             ilBranch: this.state.ilBranch,
             ilCommit: this.state.ilCommit,
-            notes: this.state.notes,
+            notes: this.state.notes
         };
-        this.props.updateDeployRecord(newDeployRecord, this.props.history);
+        this.props.createDeployRecord(updatedDeployRecord, this.props.history);
     }
 
-    render() {
-        const {errors} = this.state;
 
+    render() {
         return (
-            <div className="project">
+            <div className="deployRecords">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h1 className="display-6 text-center">Edit deploy record</h1>
+                            <h1 className="display-6 text-center">Update deploy record</h1>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <input
                                         type="text"
-                                        className={classnames("form-control form-control-lg", {"is-invalid": errors.project})}
+                                        className={classnames("form-control form-control-lg", /*{"is-invalid": errors.project}*/)}
                                         placeholder="project"
                                         name="project"
                                         value={this.state.project}
                                         onChange={this.onChange}
                                     />
-                                    {errors.project && (<div className="invalid-feedback">{errors.project}</div>)}
+                                    {/*{errors.project && (<div className="invalid-feedback">{errors.project}</div>)}*/}
                                 </div>
                                 <div className="form-group">
                                     <input
                                         type="text"
-                                        className={classnames("form-control form-control-lg", {"is-invalid": errors.environment})}
+                                        className={classnames("form-control form-control-lg", /*{"is-invalid": errors.environment}*/)}
                                         placeholder="environment"
                                         name="environment"
                                         value={this.state.environment}
                                         onChange={this.onChange}
                                     />
-                                    {errors.environment && (<div className="invalid-feedback">{errors.environment}</div>)}
+                                    {/*{errors.environment && (<div className="invalid-feedback">{errors.environment}</div>)}*/}
                                 </div>
                                 <h6>Deploy date:</h6>
                                 <div className="form-group">
                                     <input
                                         type="date"
-                                        className={classnames("form-control form-control-lg date-field", {"is-invalid": errors.deploymentDate})}
+                                        className={classnames("form-control form-control-lg date-field", /*{"is-invalid": errors.deploymentDate}*/)}
                                         name="deploymentDate"
                                         value={this.state.deploymentDate}
                                         onChange={this.onChange}
                                     />
-                                    {errors.deploymentDate && (<div className="invalid-feedback">{errors.deploymentDate}</div>)}
+                                    {/*{errors.deploymentDate && (<div className="invalid-feedback">{errors.deploymentDate}</div>)}*/}
 
                                 </div>
                                 <div className="form-group">
                                     <input
                                         type="text"
-                                        className= "form-control form-control-lg"
+                                        className="form-control form-control-lg"
                                         placeholder="core branch"
                                         name="coreBranch"
                                         value={this.state.coreBranch}
@@ -160,14 +188,15 @@ export default class UpdateDeployRecord extends Component {
     }
 
 }
-//
-// UpdateDeployRecord.propTypes = {
-//     updateDeployRecord: PropTypes.func.isRequired,
-//     errors: PropTypes.object.isRequired
-// };
-//
-// const mapStateToProps = state => ({
-//     errors: state.errors
-// });
-//
-// export default connect(mapStateToProps, {updateDeployRecord})(UpdateDeployRecord);
+
+UpdateDeployRecord.propTypes = {
+    getDeployRecord: PropTypes.func.isRequired,
+    createDeployRecord: PropTypes.func.isRequired,
+    deployRecord: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = state => ({
+    deployRecord: state.deployRecord.deployRecord
+});
+
+export default connect(mapStateToProps, {getDeployRecord, createDeployRecord})(UpdateDeployRecord);

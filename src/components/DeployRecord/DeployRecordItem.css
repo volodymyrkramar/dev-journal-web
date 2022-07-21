@@ -34,9 +34,8 @@ td .btn {
 }
 
 button img {
-    width: 60%;
-    height: 60%;
-    padding: 2px;
+    width: 55%;
+    height: 55%;
 }
 
 .btn-primary {
@@ -47,4 +46,8 @@ button img {
 
 .btn-danger {
     opacity: 80%;
+}
+
+#buttons {
+    padding: 1px;
 }

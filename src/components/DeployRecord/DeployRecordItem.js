@@ -29,13 +29,16 @@ class DeployRecordItem extends Component {
                 <td>{deployRecord.ilCommit}</td>
                 <td>{(deployRecord.createdBy !== null ? deployRecord.createdBy + " / " : "") + getDateStringFormatted(deployRecord.createdDate)}</td>
                 <td>{(deployRecord.updatedBy !== null ? deployRecord.updatedBy + " / " : "") + getDateStringFormatted(deployRecord.updatedDate)}</td>
-                <td>
+                <td id="buttons">
                     <button className="btn btn-primary">
                         <img src={noteIco} alt="note" className="img in-row-ico"/>
                     </button>
                 </td>
-                <td>
-                    <Link to={`/updateDeployRecord/${deployRecord.id}`}>
+                <td id="buttons">
+                    <Link to={{
+                        pathname: `/updateDeployRecord/${deployRecord.id}`,
+                        state: {deployRecord: deployRecord}
+                    }}>
                         <button className="btn btn-primary">
                             <img src={editIco} alt="edit" className="img in-row-ico"/>
                         </button>

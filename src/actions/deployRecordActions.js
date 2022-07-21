@@ -1,10 +1,11 @@
 import axios from 'axios';
-import {GET_ERRORS, GET_DEPLOY_RECORDS, UPDATE_DEPLOY_RECORD} from "./types";
+import {GET_ERRORS, GET_DEPLOY_RECORDS, GET_DEPLOY_RECORD} from "./types";
+import {useParams} from "react-router-dom";
 
 
 export const createDeployRecord = (deployRecordData, history) => async dispatch => {
     try {
-        const res = await axios.post("http://localhost:8080/api/deployment-record", deployRecordData);
+        await axios.post("http://localhost:8080/api/deployment-record", deployRecordData);
         history.push("/dashboard");
     } catch (err) {
         dispatch({
@@ -29,15 +30,31 @@ export const getDeployRecords = () => async dispatch => {
     }
 }
 
-export const updateDeployRecord = (deployRecordData, history) => async dispatch => {
+export const getDeployRecord = (id) => async dispatch => {
     try {
-        const res = await axios.put("http://localhost:8080/api/deployment-record", deployRecordData);
-        history.push("/dashboard");
+        const res = await axios.get(`http://localhost:8080/api/deployment-record/${id}`);
+        dispatch({
+            type: GET_DEPLOY_RECORD,
+            payload: res.data
+        });
     } catch (err) {
         dispatch({
             type: GET_ERRORS,
             payload: err.response.data
         });
     }
+
 }
+
+// export const updateDeployRecord = (deployRecordData, history) => async dispatch => {
+//     try {
+//         const res = await axios.put("http://localhost:8080/api/deployment-record", deployRecordData);
+//         history.push("/dashboard");
+//     } catch (err) {
+//         dispatch({
+//             type: GET_ERRORS,
+//             payload: err.response.data
+//         });
+//     }
+// }
 

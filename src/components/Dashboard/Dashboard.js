@@ -24,7 +24,6 @@ class Dashboard extends Component {
                             <h1 className="display-6 text-right">Deployments:</h1>
                             <CreateDeployRecordButton/>
                             <hr/>
-
                             <div className="table-responsive-xl">
                                 <table id="mytable" className="table table-bordred table-striped">
                                     <thead>

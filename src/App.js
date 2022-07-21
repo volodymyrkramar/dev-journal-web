@@ -1,10 +1,8 @@
-import React, {Component} from "react";
+import React from "react";
 import {
     BrowserRouter,
-    Router,
     Route,
     Routes,
-    Link,
 } from "react-router-dom";
 import './App.css';
 import Header from "./components/Layout/Header";
@@ -25,7 +23,7 @@ function App() {
                     <Route path="/" element={<Dashboard/>}/>
                     <Route path="/dashboard" element={<Dashboard/>}/>
                     <Route path="/addDeployRecord" element={<AddDeployRecord/>}/>
-                    <Route path="/updateDeployRecord/:id" element={<UpdateDeployRecord/>}/>
+                    <Route path="/updateDeployRecord/:id" element={<UpdateDeployRecord/>} exact />
                     <Route path="/admin" element={<Admin/>}/>
                 </Routes>
             </BrowserRouter>
