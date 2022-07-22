@@ -5,6 +5,7 @@ import "./Dashboard.css";
 import {connect} from "react-redux";
 import {getDeployRecords} from "../../actions/deployRecordActions";
 import PropTypes from "prop-types";
+import NotesModal from "../Layout/NotesModal";
 
 class Dashboard extends Component {
 

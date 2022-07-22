@@ -1,12 +1,17 @@
 import axios from 'axios';
 import {GET_ERRORS, GET_DEPLOY_RECORDS, GET_DEPLOY_RECORD} from "./types";
 import {useParams} from "react-router-dom";
+import {useEffect} from "react";
 
 
 export const createDeployRecord = (deployRecordData, history) => async dispatch => {
     try {
         await axios.post("http://localhost:8080/api/deployment-record", deployRecordData);
         history.push("/dashboard");
+        dispatch({
+            type: GET_ERRORS,
+            payload: {}
+        });
     } catch (err) {
         dispatch({
             type: GET_ERRORS,

@@ -13,6 +13,7 @@ import UpdateDeployRecord from "./components/DeployRecord/UpdateDeployRecord";
 import Admin from "./components/Admin/Admin"
 import {Provider} from "react-redux";
 import store from "./store";
+import NotesModal from "./components/Layout/NotesModal";
 
 function App() {
     return (
@@ -25,6 +26,8 @@ function App() {
                     <Route path="/addDeployRecord" element={<AddDeployRecord/>}/>
                     <Route path="/updateDeployRecord/:id" element={<UpdateDeployRecord/>} exact />
                     <Route path="/admin" element={<Admin/>}/>
+                    <Route path="/notesModal" element={<NotesModal/>}/>
+                    }
                 </Routes>
             </BrowserRouter>
         </Provider>
