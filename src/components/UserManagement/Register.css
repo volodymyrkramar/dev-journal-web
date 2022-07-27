@@ -1,0 +1,19 @@
+.btn-primary {
+    opacity: 60%;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #2A2B2E;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px 4px #88888859;
+    margin: 0 auto;
+    display: block;
+}
+
+.btn-primary:hover {
+    border-color: #25cff2;
+    color: #00B0F0;
+    text-decoration: underline;
+    background-color: #F2F2F2;
+}

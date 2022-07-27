@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Register.css';
 
 class Register extends Component {
     render() {
@@ -29,7 +30,7 @@ class Register extends Component {
                                            placeholder="Confirm Password"
                                            name="password2"/>
                                 </div>
-                                <input type="submit" className="btn btn-info btn-block mt-4"/>
+                                <input type="submit" className="btn btn-primary btn-block mt-4"/>
                             </form>
                         </div>
                     </div>
