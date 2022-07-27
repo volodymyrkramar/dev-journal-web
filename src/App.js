@@ -14,6 +14,9 @@ import Admin from "./components/Admin/Admin"
 import {Provider} from "react-redux";
 import store from "./store";
 import NotesModal from "./components/Layout/NotesModal";
+import Landing from "./components/Layout/Landing";
+import Login from "./components/UserManagement/Login";
+import Register from "./components/UserManagement/Register";
 
 function App() {
     return (
@@ -21,8 +24,10 @@ function App() {
             <BrowserRouter>
                 <Header/>
                 <Routes>
-                    <Route path="/" element={<Dashboard/>}/>
-                    <Route path="/dashboard" element={<Dashboard/>}/>
+                    <Route path="/" element={<Landing/>} exact/>
+                    <Route path="/login" element={<Login/>} exact/>
+                    <Route path="/register" element={<Register/>} exact/>
+                    <Route path="/dashboard" element={<Dashboard/>} exact/>
                     <Route path="/addDeployRecord" element={<AddDeployRecord/>}/>
                     <Route path="/updateDeployRecord/:id" element={<UpdateDeployRecord/>} exact />
                     <Route path="/admin" element={<Admin/>}/>
