@@ -19,6 +19,7 @@ class Register extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+
     onChange(e) {
         this.setState({[e.target.name]: e.target.value});
     }
@@ -49,30 +50,38 @@ class Register extends Component {
                     <div className="row">
                         <div className="col-md-8 m-auto">
                             <h1 className="display-4 text-center">Sign Up</h1>
-                            <p className="lead text-center">Create your Account</p>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
-                                    <input type="text" className="form-control form-control-lg" placeholder="username"
+                                    <input type="text"
+                                           className={classnames("form-control form-control-lg", {'is-invalid': errors.username})}
+                                           placeholder="username"
                                            name="username"
                                            value={this.state.username}
                                            onChange={this.onChange}
                                            autoComplete="off"/>
+                                    {errors.username && (<div className="invalid-feedback">{errors.username}</div>)}
 
                                 </div>
+
                                 <div className="form-group">
-                                    <input type="password" className="form-control form-control-lg"
-                                           placeholder="password" name="password"
+                                    <input type="password"
+                                           className={classnames("form-control form-control-lg", {'is-invalid': errors.password})}
+                                           placeholder="password - should be at least 6 characters"
+                                           name="password"
                                            value={this.state.password}
                                            onChange={this.onChange}
                                            autoComplete="off"/>
+                                    {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                                 </div>
                                 <div className="form-group">
-                                    <input type="password" className="form-control form-control-lg"
-                                           placeholder="Confirm Password"
+                                    <input type="password"
+                                           className={classnames("form-control form-control-lg", {'is-invalid': errors.confirmedPassword})}
+                                           placeholder="confirm password"
                                            name="confirmedPassword"
                                            value={this.state.confirmedPassword}
                                            onChange={this.onChange}
                                            autoComplete="off"/>
+                                    {errors.confirmedPassword && (<div className="invalid-feedback">{errors.confirmedPassword}</div>)}
                                 </div>
                                 <input type="submit" className="btn btn-primary btn-block mt-4"/>
                             </form>

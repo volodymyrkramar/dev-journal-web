@@ -1,0 +1,14 @@
+.landing img {
+    position: absolute;
+    left: 0;
+    top:  -40px;
+    width: 100%;
+    opacity: 0.03;
+    margin-top: 0;
+}
+
+.container {
+    margin-top: 80px;
+}
+
+

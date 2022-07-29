@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 // import {Link} from 'react-router-dom';
 import './Header.css';
-import logo from "../../../src/components/res/images/pay-force-logo-motto.svg";
+import logo from "../../media/pay-force-logo-motto.svg";
 
 class Header extends Component {
     render() {
@@ -16,53 +16,19 @@ class Header extends Component {
                                     alt="companyLogo" className="img img-container-logo"/>
                             </div>
                         </div>
-                        <div className="col-md-8">
+                        <div className="col-md-2 header-line app-name-holder">
+                            <p className="app-name">Pay Force</p>
+                            <p className="app-name"> dev journal</p>
+                        </div>
+                        <div className="col-md-6 header-line">
                             <nav>
                                 <ul>
                                     <li className="nav-item">
-                                        {/*<Link to="/Dashboard">*/}
-                                        {/*    Candidates*/}
-                                        {/*</Link>*/}
                                         <a className="nav-link" href="/dashboard">
                                             Dashboard
                                         </a>
                                     </li>
-                                    {/*<li className="nav-item">*/}
-                                    {/*    /!*<Link to="/Dashboard">*!/*/}
-                                    {/*    /!*    Vacancies*!/*/}
-                                    {/*    /!*</Link>*!/*/}
-                                    {/*    <a className="nav-link" href="/dashboard">*/}
-                                    {/*        Dashboard*/}
-                                    {/*    </a>*/}
-                                    {/*</li>*/}
-                                    {/*<li className="nav-item">*/}
-                                    {/*    /!*<Link to="/Dashboard">*!/*/}
-                                    {/*    /!*    Clients*!/*/}
-                                    {/*    /!*</Link>*!/*/}
-                                    {/*    <a className="nav-link" href="/dashboard">*/}
-                                    {/*        Dashboard*/}
-                                    {/*    </a>*/}
-                                    {/*</li>*/}
-                                    {/*<li className="nav-item">*/}
-                                    {/*    /!*<Link to="/Dashboard">*!/*/}
-                                    {/*    /!*    User*!/*/}
-                                    {/*    /!*</Link>*!/*/}
-                                    {/*    <a className="nav-link" href="/dashboard">*/}
-                                    {/*        Dashboard*/}
-                                    {/*    </a>*/}
-                                    {/*</li>*/}
-                                    {/*<li className="nav-item">*/}
-                                    {/*    /!*<Link to="/Dashboard">*!/*/}
-                                    {/*    /!*    Sign Up*!/*/}
-                                    {/*    /!*</Link>*!/*/}
-                                    {/*    <a className="nav-link" href="/dashboard">*/}
-                                    {/*        Dashboard*/}
-                                    {/*    </a>*/}
-                                    {/*</li>*/}
                                     <li className="nav-item">
-                                        {/*<Link to="/Dashboard">*/}
-                                        {/*    Login*/}
-                                        {/*</Link>*/}
                                         <a className="nav-link" href="/admin">
                                             Admin-console
                                         </a>
@@ -70,39 +36,16 @@ class Header extends Component {
                                 </ul>
                             </nav>
                         </div>
-                        <div className="col-md-3 right-block">
+                        <div className="col-md-3 right-block header-line">
                             <div className="bell-block">
                                 <li className="far fa-bell fa-lg">
                                 </li>
                             </div>
                             <div className="log-block">
                                 <li className="nav-item  dropdown no-arrow">
-                                    {/*<Link className="nav-link dropdown-toggle" to="" id="userDropdown" role="button"*/}
-                                    {/*      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*/}
-                                    {/*    <img className="img-profile rounded-circle"*/}
-                                    {/*         src="https://source.unsplash.com/QAB-WJcbgJk/30x30"/>*/}
-                                    {/*    <span className="mr-2 d-none d-lg-inline">  John Dou</span>*/}
-                                    {/*</Link>*/}
                                     <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                          aria-labelledby="userDropdown">
-                                        {/*<Link className="dropdown-item" to="">*/}
-                                        {/*    <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"> </i>*/}
-                                        {/*    Profile*/}
-                                        {/*</Link>*/}
-                                        {/*<Link className="dropdown-item" to="">*/}
-                                        {/*    <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"> </i>*/}
-                                        {/*    Settings*/}
-                                        {/*</Link>*/}
-                                        {/*<Link className="dropdown-item" to="">*/}
-                                        {/*    <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400"> </i>*/}
-                                        {/*    Activity Log*/}
-                                        {/*</Link>*/}
                                         <div className="dropdown-divider"></div>
-                                        {/*<Link className="dropdown-item" to="" data-toggle="modal"*/}
-                                        {/*      data-target="#logoutModal">*/}
-                                        {/*    <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"> </i>*/}
-                                        {/*    Logout*/}
-                                        {/*</Link>*/}
                                     </div>
                                 </li>
                             </div>

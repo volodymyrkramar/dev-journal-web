@@ -2,12 +2,14 @@ header div.menu img.img-container-logo {
     display: block;
     width: 100px;
     margin: 0 auto;
+    margin-top: 5px;
     padding-top: 5px;
     float: right;
 }
 
 header div.menu {
     min-height: 60px;
+  /*  max-height: 65px;*/
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 5px;
@@ -86,8 +88,17 @@ a.nav-link {
     transform-style: initial;
     transition-duration: 600ms;
 }
+
 a.nav-link:hover {
     color: grey;
     text-decoration: underline;
 }
+
+.app-name {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 900;
+    color: #dc3545;
+}
+
 

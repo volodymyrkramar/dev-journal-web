@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import {Provider} from "react-redux";
 import store from "./store";
-import Landing from "./components/Layout/Landing";
+import LandingLoging from "./components/Layout/LandingLoging";
 import Register from "./components/UserManagement/Register";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AddDeployRecord from "./components/DeployRecord/AddDeployRecord";
@@ -18,8 +18,8 @@ class App extends Component {
                 <Router>
                     <div className="App">
                         <Header/>
-                        <Route exact path="/" component={Landing}/>
-                        <Route exact path="/login" component={Landing}/>
+                        <Route exact path="/" component={LandingLoging}/>
+                        <Route exact path="/login" component={LandingLoging}/>
                         <Route exact path="/register" component={Register}/>
                         <Route exact path="/dashboard" component={Dashboard}/>
                         <Route exact path="/addDeployRecord" component={AddDeployRecord}/>
