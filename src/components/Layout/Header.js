@@ -27,14 +27,14 @@ class Header extends Component {
                                             Dashboard
                                         </a>
                                     </li>
-                                    <li className="nav-item">
-                                        {/*<Link to="/Dashboard">*/}
-                                        {/*    Vacancies*/}
-                                        {/*</Link>*/}
-                                        <a className="nav-link" href="/dashboard">
-                                            Dashboard
-                                        </a>
-                                    </li>
+                                    {/*<li className="nav-item">*/}
+                                    {/*    /!*<Link to="/Dashboard">*!/*/}
+                                    {/*    /!*    Vacancies*!/*/}
+                                    {/*    /!*</Link>*!/*/}
+                                    {/*    <a className="nav-link" href="/dashboard">*/}
+                                    {/*        Dashboard*/}
+                                    {/*    </a>*/}
+                                    {/*</li>*/}
                                     {/*<li className="nav-item">*/}
                                     {/*    /!*<Link to="/Dashboard">*!/*/}
                                     {/*    /!*    Clients*!/*/}

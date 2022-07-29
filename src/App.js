@@ -1,42 +1,37 @@
-import React from "react";
-import {
-    BrowserRouter,
-    Route,
-    Routes,
-} from "react-router-dom";
-import './App.css';
+import React, {Component} from "react";
+import "./App.css";
 import Header from "./components/Layout/Header";
-import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import {Provider} from "react-redux";
+import store from "./store";
+import Landing from "./components/Layout/Landing";
+import Register from "./components/UserManagement/Register";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AddDeployRecord from "./components/DeployRecord/AddDeployRecord";
 import UpdateDeployRecord from "./components/DeployRecord/UpdateDeployRecord";
-import Admin from "./components/Admin/Admin"
-import {Provider} from "react-redux";
-import store from "./store";
-import NotesModal from "./components/Layout/NotesModal";
-import Landing from "./components/Layout/Landing";
-import Login from "./components/UserManagement/Login";
-import Register from "./components/UserManagement/Register";
 
-function App() {
-    return (
-        <Provider store={store}>
-            <BrowserRouter>
-                <Header/>
-                <Routes>
-                    <Route path="/" element={<Landing/>} exact/>
-                    <Route path="/login" element={<Login/>} exact/>
-                    <Route path="/register" element={<Register/>} exact/>
-                    <Route path="/dashboard" element={<Dashboard/>} exact/>
-                    <Route path="/addDeployRecord" element={<AddDeployRecord/>}/>
-                    <Route path="/updateDeployRecord/:id" element={<UpdateDeployRecord/>} exact />
-                    <Route path="/admin" element={<Admin/>}/>
-                    <Route path="/notesModal" element={<NotesModal/>}/>
-                    }
-                </Routes>
-            </BrowserRouter>
-        </Provider>
-    );
+class App extends Component {
+    render() {
+        return (
+            <Provider store={store}>
+                <Router>
+                    <div className="App">
+                        <Header/>
+                        <Route exact path="/" component={Landing}/>
+                        <Route exact path="/login" component={Landing}/>
+                        <Route exact path="/register" component={Register}/>
+                        <Route exact path="/dashboard" component={Dashboard}/>
+                        <Route exact path="/addDeployRecord" component={AddDeployRecord}/>
+                        <Route exact path="/updateDeployRecord/:id" component={UpdateDeployRecord}/>
+                        {/*<Route exact path="/admin" component={Admin}/>*/}
+                        {/*<Route exact path="/notesModal" component={NotesModal}/>*/}
+                    </div>
+                </Router>
+            </Provider>
+
+        );
+    }
 }
 
 export default App;
