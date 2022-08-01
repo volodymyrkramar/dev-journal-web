@@ -13,6 +13,7 @@ class Register extends Component {
             username: '',
             password: '',
             confirmedPassword: '',
+            secretKeyphrase: '',
             errors: {}
         }
         this.onChange = this.onChange.bind(this);
@@ -29,7 +30,8 @@ class Register extends Component {
         const user = {
             username: this.state.username,
             password: this.state.password,
-            confirmedPassword: this.state.confirmedPassword
+            confirmedPassword: this.state.confirmedPassword,
+            secretKeyphrase: this.state.secretKeyphrase
         };
         this.props.createNewUser(user, this.props.history);
     }
@@ -82,6 +84,16 @@ class Register extends Component {
                                            onChange={this.onChange}
                                            autoComplete="off"/>
                                     {errors.confirmedPassword && (<div className="invalid-feedback">{errors.confirmedPassword}</div>)}
+                                </div>
+                                <div className="form-group">
+                                    <input type="text"
+                                           className={classnames("form-control form-control-lg", {'is-invalid': errors.secretKeyphrase})}
+                                           placeholder="enter your secret phrase"
+                                           name="secretKeyphrase"
+                                           value={this.state.secretKeyphrase}
+                                           onChange={this.onChange}
+                                           autoComplete="off"/>
+                                    {errors.secretKeyphrase && (<div className="invalid-feedback">{errors.secretKeyphrase}</div>)}
                                 </div>
                                 <input type="submit" className="btn btn-primary btn-block mt-4"/>
                             </form>

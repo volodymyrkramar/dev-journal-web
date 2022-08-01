@@ -10,6 +10,7 @@ import Register from "./components/UserManagement/Register";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AddDeployRecord from "./components/DeployRecord/AddDeployRecord";
 import UpdateDeployRecord from "./components/DeployRecord/UpdateDeployRecord";
+import Admin from "./components/Admin/Admin";
 
 class App extends Component {
     render() {
