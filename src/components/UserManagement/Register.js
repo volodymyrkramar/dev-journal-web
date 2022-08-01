@@ -82,7 +82,7 @@ class Register extends Component {
                                            name="confirmedPassword"
                                            value={this.state.confirmedPassword}
                                            onChange={this.onChange}
-                                           autoComplete="off"/>
+                                           autoComplete="new-password"/>
                                     {errors.confirmedPassword && (<div className="invalid-feedback">{errors.confirmedPassword}</div>)}
                                 </div>
                                 <div className="form-group">

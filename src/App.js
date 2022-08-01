@@ -14,6 +14,7 @@ import Admin from "./components/Admin/Admin";
 import jwt_decode from "jwt-decode";
 import setJWT from "./securityUtils/setJWT";
 import {SET_CURRENT_USER} from "./actions/types";
+import {logout} from "./actions/securityActions";
 
 const jwtToken = localStorage.jwtToken;
 
@@ -27,11 +28,8 @@ if(jwtToken) {
 
     const currentTime = Date.now() / 1000;
     if(decoded.exp < currentTime) {
-        // window.location.href = "/";
-        // store.dispatch({
-        //     type: "SET_CURRENT_USER",
-        //     payload: {}
-        // });
+        store.dispatch(logout());
+        window.location.href = "/";
     }
 }
 
@@ -48,7 +46,7 @@ class App extends Component {
                         <Route exact path="/dashboard" component={Dashboard}/>
                         <Route exact path="/addDeployRecord" component={AddDeployRecord}/>
                         <Route exact path="/updateDeployRecord/:id" component={UpdateDeployRecord}/>
-                        {/*<Route exact path="/admin" component={Admin}/>*/}
+                        <Route exact path="/admin" component={Admin}/>
                         {/*<Route exact path="/notesModal" component={NotesModal}/>*/}
                     </div>
                 </Router>
