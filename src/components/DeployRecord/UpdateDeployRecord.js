@@ -57,7 +57,6 @@ class UpdateDeployRecord extends Component {
 
     componentDidMount() {
         const { id } = this.props.match.params;
-       // const id = 1;
         this.props.getDeployRecord(id);
     }
 

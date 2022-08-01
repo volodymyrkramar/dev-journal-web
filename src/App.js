@@ -15,6 +15,7 @@ import jwt_decode from "jwt-decode";
 import setJWT from "./securityUtils/setJWT";
 import {SET_CURRENT_USER} from "./actions/types";
 import {logout} from "./actions/securityActions";
+import Notes from "./components/DeployRecord/Notes";
 
 const jwtToken = localStorage.jwtToken;
 
@@ -47,6 +48,7 @@ class App extends Component {
                         <Route exact path="/addDeployRecord" component={AddDeployRecord}/>
                         <Route exact path="/updateDeployRecord/:id" component={UpdateDeployRecord}/>
                         <Route exact path="/admin" component={Admin}/>
+                        <Route exact path="/notes/:notes" component={Notes}/>
                         {/*<Route exact path="/notesModal" component={NotesModal}/>*/}
                     </div>
                 </Router>

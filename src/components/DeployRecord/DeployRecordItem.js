@@ -30,9 +30,14 @@ class DeployRecordItem extends Component {
                 <td>{(deployRecord.createdBy !== null ? deployRecord.createdBy + " / " : "") + getDateStringFormatted(deployRecord.createdDate)}</td>
                 <td>{(deployRecord.updatedBy !== null ? deployRecord.updatedBy + " / " : "") + getDateStringFormatted(deployRecord.updatedDate)}</td>
                 <td id="buttons">
-                    <button className="btn btn-primary">
-                        <img src={noteIco} alt="note" className="img in-row-ico"/>
-                    </button>
+                    <Link to={{
+                        pathname: `/notes/${deployRecord.notes !== "" ? deployRecord.notes : "No notes yet"}`,
+                        state: {notes: deployRecord.notes}
+                    }}>
+                        <button className="btn btn-primary">
+                            <img src={noteIco} alt="note" className="img in-row-ico"/>
+                        </button>
+                    </Link>
                 </td>
                 <td id="buttons">
                     <Link to={{
