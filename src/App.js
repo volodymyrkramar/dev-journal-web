@@ -11,6 +11,29 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import AddDeployRecord from "./components/DeployRecord/AddDeployRecord";
 import UpdateDeployRecord from "./components/DeployRecord/UpdateDeployRecord";
 import Admin from "./components/Admin/Admin";
+import jwt_decode from "jwt-decode";
+import setJWT from "./securityUtils/setJWT";
+import {SET_CURRENT_USER} from "./actions/types";
+
+const jwtToken = localStorage.jwtToken;
+
+if(jwtToken) {
+    setJWT(jwtToken);
+    const decoded = jwt_decode(jwtToken);
+    store.dispatch({
+        type: "SET_CURRENT_USER",
+        payload: decoded
+    });
+
+    const currentTime = Date.now() / 1000;
+    if(decoded.exp < currentTime) {
+        // window.location.href = "/";
+        // store.dispatch({
+        //     type: "SET_CURRENT_USER",
+        //     payload: {}
+        // });
+    }
+}
 
 class App extends Component {
     render() {

@@ -39,11 +39,11 @@ class DeployRecordItem extends Component {
                         pathname: `/updateDeployRecord/${deployRecord.id}`,
                         state: {deployRecord: deployRecord}
                     }}>
-                        <button className="btn btn-primary">
+                        <button className="btn btn-primary update">
                             <img src={editIco} alt="edit" className="img in-row-ico"/>
                         </button>
                     </Link>
-                    <button className="btn btn-danger">
+                    <button className="btn btn-danger delete">
                         <img src={delIco} alt="delete" className="img in-row-ico"/>
                     </button>
                 </td>
