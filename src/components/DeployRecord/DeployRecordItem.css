@@ -42,11 +42,15 @@ button img {
     background-color: #00B0F0;
     border-color: #00B0F0;
     opacity: 60%;
+    display: inline;
 }
 
 .btn-danger {
     opacity: 80%;
+    border-radius: 16px;
+    display: inline;
 }
+
 
 #buttons {
     padding: 1px;

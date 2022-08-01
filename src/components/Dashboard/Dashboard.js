@@ -31,7 +31,7 @@ class Dashboard extends Component {
                                     <tr>
                                         <th>date</th>
                                         <th>project</th>
-                                        <th>environment</th>
+                                        <th>server</th>
                                         <th>core branch</th>
                                         <th>core commit</th>
                                         <th>il branch</th>

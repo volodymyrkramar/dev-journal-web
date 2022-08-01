@@ -32,6 +32,15 @@ class LandingLoging extends Component {
         this.props.login(LoginRequest);
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.security.validToken) {
+            this.props.history.push('/dashboard');
+        }
+        if (nextProps.errors) {
+            this.setState({errors: nextProps.errors});
+        }
+    }
+
     render() {
         return (
             <div className="landing">
@@ -50,7 +59,7 @@ class LandingLoging extends Component {
                                                    placeholder="username"
                                                    name="username"
                                                    value={this.state.username}
-                                                    onChange={this.onChange}
+                                                   onChange={this.onChange}
                                             />
                                         </div>
                                         <div className="form-group">
@@ -59,9 +68,7 @@ class LandingLoging extends Component {
                                                    placeholder="Password"
                                                    name="password"
                                                    value={this.state.password}
-                                                    onChange={this.onChange}
-
-
+                                                   onChange={this.onChange}
                                             />
                                         </div>
                                         <br/>
@@ -101,4 +108,4 @@ const mapStateToProps = state => ({
     errors: state.errors
 });
 
-export default connect(mapStateToProps, {login}) (LandingLoging);
+export default connect(mapStateToProps, {login})(LandingLoging);

@@ -5,14 +5,19 @@ const initialState = {
     isAuthenticated: false
 }
 
-export default function(state = initialState, action) {
+const booleanActionPayload = payload => {
+    return !!payload;
+}
+
+
+export default function (state = initialState, action) {
     switch (action.type) {
         case SET_CURRENT_USER:
             return {
                 ...state,
-                user: action.payload,
-                isAuthenticated: !!action.payload.id
-            }
+                validToken: booleanActionPayload(action.payload),
+                user: action.payload
+            };
         default:
             return state;
     }

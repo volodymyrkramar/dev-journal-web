@@ -24,9 +24,9 @@ class DeployRecordItem extends Component {
                 <td>{deployRecord.project}</td>
                 <td>{deployRecord.environment}</td>
                 <td>{deployRecord.coreBranch}</td>
-                <td>{deployRecord.coreCommit}</td>
+                <td className="commit">{deployRecord.coreCommit}</td>
                 <td>{deployRecord.ilBranch}</td>
-                <td>{deployRecord.ilCommit}</td>
+                <td className="commit">{deployRecord.ilCommit}</td>
                 <td>{(deployRecord.createdBy !== null ? deployRecord.createdBy + " / " : "") + getDateStringFormatted(deployRecord.createdDate)}</td>
                 <td>{(deployRecord.updatedBy !== null ? deployRecord.updatedBy + " / " : "") + getDateStringFormatted(deployRecord.updatedDate)}</td>
                 <td id="buttons">
