@@ -2,9 +2,72 @@ import React, {Component} from "react";
 // import {Link} from 'react-router-dom';
 import './Header.css';
 import logo from "../../media/pay-force-logo-motto.svg";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {logout} from "../../actions/securityActions";
+import {Link} from "react-router-dom";
 
 class Header extends Component {
+
+    logout() {
+        this.props.logout();
+        window.location.href = "/";
+    }
+
     render() {
+        const {validToken, user} = this.props.security;
+
+        let headerLinks;
+
+        if (validToken && user) {
+            headerLinks = (
+                <div className="col-md-9 header-line">
+                    <nav>
+                        <ul>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/dashboard">
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/admin">
+                                    Admin-console
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <Link
+                                    className="nav-link"
+                                    to="/logout"
+                                    onClick={this.logout.bind(this)}
+                                >
+                                    Logout
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            );
+        } else {
+            headerLinks = (
+                <div className="col-md-9 header-line">
+                    <nav>
+                        <ul>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/">
+                                    Login
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/register">
+                                    Register
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            );
+        }
+
         return (
             <div className="container-fluid">
                 <header>
@@ -20,38 +83,9 @@ class Header extends Component {
                             <p className="app-name">Pay Force</p>
                             <p className="app-name"> dev journal</p>
                         </div>
-                        <div className="col-md-6 header-line">
-                            <nav>
-                                <ul>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="/dashboard">
-                                            Dashboard
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="/admin">
-                                            Admin-console
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div className="col-md-3 right-block header-line">
-                            <div className="bell-block">
-                                <li className="far fa-bell fa-lg">
-                                </li>
-                            </div>
-                            <div className="log-block">
-                                <li className="nav-item  dropdown no-arrow">
-                                    <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                         aria-labelledby="userDropdown">
-                                        <div className="dropdown-divider"></div>
-                                    </div>
-                                </li>
-                            </div>
-                        </div>
-
+                        {headerLinks}
                     </div>
+
                 </header>
                 <br/>
             </div>
@@ -61,4 +95,13 @@ class Header extends Component {
     }
 }
 
-export default Header;
+Header.propTypes = {
+    logout: PropTypes.func.isRequired,
+    security: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+    security: state.security
+})
+
+export default connect(mapStateToProps, {logout})(Header);
