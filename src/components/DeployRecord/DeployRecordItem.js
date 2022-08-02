@@ -45,7 +45,7 @@ class DeployRecordItem extends Component {
                         pathname: `/notes/${deployRecord.notes !== "" ? deployRecord.notes : "No notes yet"}`,
                         state: {notes: deployRecord.notes}
                     }}>
-                        <button className="btn btn-primary">
+                        <button className="btn notes-button">
                             <img src={noteIco} alt="note" className="img in-row-ico"/>
                         </button>
                     </Link>
@@ -55,11 +55,11 @@ class DeployRecordItem extends Component {
                         pathname: `/updateDeployRecord/${deployRecord.id}`,
                         state: {deployRecord: deployRecord}
                     }}>
-                        <button className="btn btn-primary update">
+                        <button className="btn update-button">
                             <img src={editIco} alt="edit" className="img in-row-ico"/>
                         </button>
                     </Link>
-                    <button className="btn btn-danger delete" onClick={this.onDeleteClick.bind(this, deployRecord.id)}>
+                    <button className="btn delete-button" onClick={this.onDeleteClick.bind(this, deployRecord.id)}>
                         <img src={delIco} alt="delete" className="img in-row-ico"/>
                     </button>
                 </td>
