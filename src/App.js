@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import "./App.css";
 import Header from "./components/Layout/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {Provider} from "react-redux";
 import store from "./store";
 import LandingLoging from "./components/Layout/LandingLoging";
@@ -16,10 +16,11 @@ import setJWT from "./securityUtils/setJWT";
 import {SET_CURRENT_USER} from "./actions/types";
 import {logout} from "./actions/securityActions";
 import Notes from "./components/DeployRecord/Notes";
+import SecureRout from "./securityUtils/secureRout";
 
 const jwtToken = localStorage.jwtToken;
 
-if(jwtToken) {
+if (jwtToken) {
     setJWT(jwtToken);
     const decoded = jwt_decode(jwtToken);
     store.dispatch({
@@ -28,7 +29,7 @@ if(jwtToken) {
     });
 
     const currentTime = Date.now() / 1000;
-    if(decoded.exp < currentTime) {
+    if (decoded.exp < currentTime) {
         store.dispatch(logout());
         window.location.href = "/";
     }
@@ -41,15 +42,19 @@ class App extends Component {
                 <Router>
                     <div className="App">
                         <Header/>
+
                         <Route exact path="/" component={LandingLoging}/>
                         <Route exact path="/login" component={LandingLoging}/>
                         <Route exact path="/register" component={Register}/>
-                        <Route exact path="/dashboard" component={Dashboard}/>
-                        <Route exact path="/addDeployRecord" component={AddDeployRecord}/>
-                        <Route exact path="/updateDeployRecord/:id" component={UpdateDeployRecord}/>
-                        <Route exact path="/admin" component={Admin}/>
-                        <Route exact path="/notes/:notes" component={Notes}/>
-                        {/*<Route exact path="/notesModal" component={NotesModal}/>*/}
+
+                        <Switch>
+                            <SecureRout exact path="/dashboard" component={Dashboard}/>
+                            <SecureRout path="/addDeployRecord" component={AddDeployRecord}/>
+                            <SecureRout path="/updateDeployRecord/:id" component={UpdateDeployRecord}/>
+                            <SecureRout path="/admin" component={Admin}/>
+                            <SecureRout path="/notes/:notes" component={Notes}/>
+                            {/*<Route exact path="/notesModal" component={NotesModal}/>*/}
+                        </Switch>
                     </div>
                 </Router>
             </Provider>

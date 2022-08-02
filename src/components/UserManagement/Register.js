@@ -101,7 +101,7 @@ class Register extends Component {
                                            autoComplete="off"/>
                                     {errors.secretKeyphrase && (<div className="invalid-feedback">{errors.secretKeyphrase}</div>)}
                                 </div>
-                                <input type="submit" className="btn btn-primary btn-block mt-4"/>
+                                <input type="submit" className="btn btn-primary btn-block mt-4" value="Submit"/>
                             </form>
                         </div>
                     </div>
