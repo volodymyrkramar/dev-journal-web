@@ -15,7 +15,7 @@ class DeployRecordItem extends Component {
             }
             let date = new Date(inDate);
             return `${date.getDate() < 10 ? ("0" + (date.getDate() + 1)) : date.getDate() + 1}-${date.getMonth() < 10 ? ("0" + (date.getMonth() + 1)) : date.getMonth() + 1}-${date.getFullYear().toString().slice(2)} 
-            ${date.getHours()}:${date.getMinutes() < 10 ? ("0" + (date.getMinutes() + 1)) : date.getMinutes() + 1}`;
+            ${date.getHours()}:${date.getMinutes() < 10 ? ("0" + (date.getMinutes() + 1)) : date.getMinutes() + 1}`.replace("\n", "");
         }
 
         return (
@@ -27,8 +27,10 @@ class DeployRecordItem extends Component {
                 <td className="commit">{deployRecord.coreCommit}</td>
                 <td>{deployRecord.ilBranch}</td>
                 <td className="commit">{deployRecord.ilCommit}</td>
-                <td>{(deployRecord.createdBy !== null ? deployRecord.createdBy + " / " : "") + getDateStringFormatted(deployRecord.createdDate)}</td>
-                <td>{(deployRecord.updatedBy !== null ? deployRecord.updatedBy + " / " : "") + getDateStringFormatted(deployRecord.updatedDate)}</td>
+                <td style={{whiteSpace : 'pre-line'}}>{(deployRecord.createdBy !== null ? deployRecord.createdBy + " / " : "") +
+                    (deployRecord.createdBy !== null && deployRecord.createdBy.length > 12 ? "\n" : "") + getDateStringFormatted(deployRecord.createdDate)}</td>
+                <td style={{whiteSpace : 'pre-line'}}>{(deployRecord.updatedBy !== null ? deployRecord.updatedBy + " / " : "") +
+                    (deployRecord.updatedBy !== null && deployRecord.updatedBy.length > 12 ? "\n" : "") + getDateStringFormatted(deployRecord.updatedDate)}</td>
                 <td id="buttons">
                     <Link to={{
                         pathname: `/notes/${deployRecord.notes !== "" ? deployRecord.notes : "No notes yet"}`,
