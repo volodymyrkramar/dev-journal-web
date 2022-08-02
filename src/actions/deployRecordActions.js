@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_ERRORS, GET_DEPLOY_RECORDS, GET_DEPLOY_RECORD} from "./types";
+import {GET_ERRORS, GET_DEPLOY_RECORDS, GET_DEPLOY_RECORD, DELETE_DEPLOY_RECORD} from "./types";
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
 
@@ -51,15 +51,11 @@ export const getDeployRecord = (id) => async dispatch => {
 
 }
 
-// export const updateDeployRecord = (deployRecordData, history) => async dispatch => {
-//     try {
-//         const res = await axios.put("http://localhost:8080/api/deployment-record", deployRecordData);
-//         history.push("/dashboard");
-//     } catch (err) {
-//         dispatch({
-//             type: GET_ERRORS,
-//             payload: err.response.data
-//         });
-//     }
-// }
+export const deleteDeployRecord = id => async dispatch => {
+    await axios.delete(`http://localhost:8080/api/deployment-record/${id}`);
+    dispatch({
+        type: DELETE_DEPLOY_RECORD,
+        payload: id
+    });
+};
 

@@ -44,7 +44,7 @@ class Dashboard extends Component {
                                     </thead>
                                     <tbody>
                                     {
-                                        deployRecords.map(deployRecord => (
+                                        deployRecords.filter(dr => !dr.deleted).map(deployRecord => (
                                             <DeployRecordItem key={deployRecord.id} deployRecord={deployRecord}/>
                                         ))
                                     }

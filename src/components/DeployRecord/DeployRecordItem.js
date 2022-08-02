@@ -4,8 +4,17 @@ import editIco from "../../../src/media/edit.svg";
 import noteIco from "../../../src/media/notes.svg";
 import './DeployRecordItem.css';
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {deleteDeployRecord} from "../../actions/deployRecordActions";
+
 
 class DeployRecordItem extends Component {
+
+    onDeleteClick = (id) => {
+        this.props.deleteDeployRecord(id);
+    };
+
     render() {
         const {deployRecord} = this.props;
 
@@ -50,7 +59,7 @@ class DeployRecordItem extends Component {
                             <img src={editIco} alt="edit" className="img in-row-ico"/>
                         </button>
                     </Link>
-                    <button className="btn btn-danger delete">
+                    <button className="btn btn-danger delete" onClick={this.onDeleteClick.bind(this, deployRecord.id)}>
                         <img src={delIco} alt="delete" className="img in-row-ico"/>
                     </button>
                 </td>
@@ -59,4 +68,8 @@ class DeployRecordItem extends Component {
     }
 }
 
-export default DeployRecordItem;
+DeployRecordItem.propTypes = {
+    deleteDeployRecord: PropTypes.func.isRequired
+}
+
+export default connect(null, {deleteDeployRecord})(DeployRecordItem);

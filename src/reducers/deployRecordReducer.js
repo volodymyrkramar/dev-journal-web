@@ -1,4 +1,5 @@
-import {GET_DEPLOY_RECORD, GET_DEPLOY_RECORDS} from "../actions/types";
+import {GET_DEPLOY_RECORD, GET_DEPLOY_RECORDS, DELETE_DEPLOY_RECORD} from "../actions/types";
+import deployRecordItem from "../components/DeployRecord/DeployRecordItem";
 
 const initialState = {
     deployRecords: [],
@@ -16,6 +17,12 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 deployRecord: action.payload,
+            };
+
+        case DELETE_DEPLOY_RECORD:
+            return {
+                ...state,
+                deployRecords: state.deployRecords.filter(deployRecordItem => deployRecordItem.id !== action.payload),
             };
         default:
             return state;
