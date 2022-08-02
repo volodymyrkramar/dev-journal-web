@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './LandingLoging.css';
-import logo from "../../media/pay-force-logo-motto.svg";
+import logo from "../../media/logo.svg";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";

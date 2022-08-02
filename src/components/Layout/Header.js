@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 // import {Link} from 'react-router-dom';
 import './Header.css';
-import logo from "../../media/pay-force-logo-motto.svg";
+import logo from "../../media/logo.svg";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {logout} from "../../actions/securityActions";
