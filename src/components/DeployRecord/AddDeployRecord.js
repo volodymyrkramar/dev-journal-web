@@ -54,6 +54,25 @@ class AddDeployRecord extends Component {
     render() {
         const {errors} = this.state;
 
+        const projectOptions = [
+            {value: "agro", label: "agro"},
+            {value: "amic", label: "amic"},
+            {value: "bis", label: "bis"},
+            {value: "cib", label: "cib"},
+            {value: "demo", label: "demo"},
+            {value: "industrial", label: "industrial"},
+            {value: "kredo", label: "kredo"},
+        ];
+
+        const basicEnvironmentOptions = [
+            {value: "prod", label: "prod"},
+            {value: "dev", label: "dev"},
+            {value: "test", label: "test"},
+            {value: "android", label: "android"},
+            {value: "ios", label: "ios"},
+            {value: "web", label: "web"},
+        ];
+
         return (
             <div className="deployRecords">
                 <div className="row">
@@ -61,25 +80,31 @@ class AddDeployRecord extends Component {
                         <h1 className="display-6 text-center">Create deploy record</h1>
                         <form onSubmit={this.onSubmit}>
                             <div className="form-group">
-                                <input
-                                    type="text"
+                                <select
                                     className={classnames("form-control form-control-lg", {"is-invalid": errors.project})}
                                     placeholder="project"
                                     name="project"
                                     value={this.state.project}
                                     onChange={this.onChange}
-                                />
+                                >
+                                    {projectOptions.map(option => (
+                                        <option class="decorated" key={option.value} value={option.value}>{option.label}</option>
+                                    ))}
+                                </select>
                                 {errors.project && (<div className="invalid-feedback">{errors.project}</div>)}
                             </div>
                             <div className="form-group">
-                                <input
-                                    type="text"
+                                <select
                                     className={classnames("form-control form-control-lg", {"is-invalid": errors.environment})}
                                     placeholder="environment (dev, uat, prod, ip, etc)"
                                     name="environment"
                                     value={this.state.environment}
                                     onChange={this.onChange}
-                                />
+                                >
+                                    {basicEnvironmentOptions.map(option => (
+                                        <option key={option.value} value={option.value}>{option.label}</option>
+                                    ))}
+                                </select>
                                 {errors.environment && (<div className="invalid-feedback">{errors.environment}</div>)}
                             </div>
                             <h6>Deploy date:</h6>
@@ -156,7 +181,6 @@ class AddDeployRecord extends Component {
                 </div>
             </div>
         );
-
     }
 
 }

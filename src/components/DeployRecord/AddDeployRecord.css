@@ -1,3 +1,4 @@
+
 .submit-new-deploy-record-button {
     display: block;
     width: 70%;
@@ -48,4 +49,8 @@ h6 {
     color: red;
     font-size: 12px;
     margin-top: 0;
+}
+
+select option {
+    background-color: white;
 }
