@@ -61,6 +61,15 @@ class UpdateDeployRecord extends Component {
     }
 
     onChange = (e) => {
+        if(e.target.name === "environment" && (e.target.value === "android" || e.target.value === "ios" || e.target.value === "web")) {
+            console.log("environment changed to " + e.target.value);
+            let toRemove = document.querySelectorAll(".skip-for-client");
+            console.log(toRemove);
+            toRemove.forEach(element => {
+                element.innerHTML = "";
+            });
+        }
+
         this.setState({[e.target.name]: e.target.value});
     }
 
@@ -151,7 +160,7 @@ class UpdateDeployRecord extends Component {
                                     {errors.deploymentDate && (<div className="invalid-feedback">{errors.deploymentDate}</div>)}
 
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group  skip-for-client">
                                     <input
                                         type="text"
                                         className="form-control form-control-lg"
@@ -161,7 +170,7 @@ class UpdateDeployRecord extends Component {
                                         onChange={this.onChange}
                                     />
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group skip-for-client">
                                     <input
                                         type="text"
                                         className="form-control form-control-lg"
